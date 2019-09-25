@@ -8,8 +8,13 @@ body {
     font-family: sans-serif;
 }
 
-.formulario {
+body div {
+    margin-top: 20px;
+}
+
+.formulario form {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    align-items: center;
+    padding: 80px;
 }

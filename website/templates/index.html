@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    <title>Document</title>
+    <title>ONG Doação</title>
 </head>
 <body>
     <h1>Doação de itens tecnológicos:</h1>
+    <p>{{sucesso}}</p>
     <div class="formulario">
-    <div id='nome'>
-        <label for="your_name">Nome: </label>
-        <input type="text" name="your_name" value="{{ current_name }}">
-        <input type="submit" value="OK">
-    </div>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <label for="nome">Nome: </label>
+            <input required type="text" name="nome">
+        
+            <label for="">Sobrenome: </label>
+            <input required type="text" name="sobrenome">
+        
+            <label for="">Data de nascimento: </label>
+            <input required type="date" name="data_de_nascimento">
+        
+            <label for="">CPF: </label>
+            <input required type="number" name="cpf">
+        
+            <label for="">CEP: </label>
+            <input required type="number" name="cep">
+        
+            <label for="">Item de doação: </label>
+            <input required type="text" name="item_de_doacao">
 
-    <div id='sobrenome'>
-        <label for="your_surname">Sobrenome: </label>
-        <input type="text" name="your_surname" value="{{ current_name }}">
-        <input type="submit" value="OK">
-    </div>
-
-    <div id='cpf'>
-        <label for="your_date">Data de Nascimento: </label>
-        <input type="date" name="your_date" value="{{ current_name }}">
-        <input type="submit" value="OK">
-    </div>
-
-    <div id='cep'>
-        <label for="your_cep">Cep: </label>
-        <input type="text" name="your_cep" value="{{ current_name }}">
-        <input type="submit" value="OK">
-    </div>
-
-    <div id='doacao'>
-        <label for="your_donation">Item para doar: </label>
-        <input type="text" name="your_donation" value="{{ current_name }}">
-        <input type="submit" value="OK">
-    </div>
+        <input type="submit" value="Enviar">
 </div>
 </body>
 </html>
