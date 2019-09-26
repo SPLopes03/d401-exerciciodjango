@@ -5,7 +5,7 @@
     <p>{{sucesso}}</p>
     <div class="formulario">
         <form action="/" method="post">
-            <p><a href="/cadastro/listar">Clique aqui para ver quem se cadastrou!</a></p>
+            <p><a class ='cadastro' href="/cadastro/listar">Clique aqui para ver quem se cadastrou!</a></p>
             {% csrf_token %}
             <label for="nome">Nome: </label>
             <input required type="text" name="nome">
@@ -25,7 +25,7 @@
             <label for="">Item de doação: </label>
             <input required type="text" name="item_de_doacao">
 
-        <input type="submit" value="Enviar">
+        <input class='botao' type="submit" value="Enviar">
     </form>
 </div>
 

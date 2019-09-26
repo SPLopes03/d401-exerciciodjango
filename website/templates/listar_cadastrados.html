@@ -3,11 +3,12 @@
 {% block content %}
     <marquee><h1>Lista de cadastrados: </h1></marquee>
     {% for item in listar_cadastrados %}
+        <a href="/cadastro/delete/{{item.id}}">Deletar</a>
         <p><strong>Nome:</strong>{{item.nome}}</p>
         <p><strong>Sobrenome:</strong>{{item.sobrenome}}</p>
-        <p><strong>Data de Nascimento:</strong>{{item.data_de_nascimento}}</p>
+        <!-- <p><strong>Data de Nascimento:</strong>{{item.data_de_nascimento}}</p>
         <p><strong>CPF:</strong>{{item.cpf}}</p>
-        <p><strong>CEP:</strong>{{item.cep}}</p>
+        <p><strong>CEP:</strong>{{item.cep}}</p> -->
         <p><strong>Item de doação:</strong>{{item.item_de_doacao}}</p>
         <hr>
     {% endfor %}

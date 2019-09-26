@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from website.models import *
 
 def index(request):
@@ -21,8 +21,16 @@ def index(request):
     return render(request, 'index.html')
 
 def listar_cadastrados(request):
-    listar_cadastrados = Pessoas.objects.all()
+    listar_cadastrados = Pessoas.objects.filter(ativo=True).all()
     args = {
         'listar_cadastrados': listar_cadastrados
     }
     return render(request, 'listar_cadastrados.html', args)
+
+def delete_cadastrado(request, id):
+    item = Pessoas.objects.get(id=id)
+    if item is not None:
+        item.ativo = False
+        item.save()
+        return redirect('/cadastro/listar')
+    return render(request, 'listar_cadastrados.html', {'msg': 'apagou'})
