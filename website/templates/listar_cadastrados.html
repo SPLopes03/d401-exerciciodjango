@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
     <marquee><h1>Lista de cadastrados: </h1></marquee>
     {% for item in listar_cadastrados %}
         <p><strong>Nome:</strong>{{item.nome}}</p>
@@ -17,5 +11,4 @@
         <p><strong>Item de doação:</strong>{{item.item_de_doacao}}</p>
         <hr>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

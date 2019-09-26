@@ -18,3 +18,11 @@ body div {
     align-items: center;
     padding: 80px;
 }
+label{
+    color: #010e67;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
