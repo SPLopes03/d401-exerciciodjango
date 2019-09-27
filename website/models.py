@@ -17,5 +17,5 @@ class Pessoas(models.Model):
 
 class User(models.Model):
     nome = models.ForeignKey(Pessoas, on_delete=None)
-    email = models.EmailField(max_length=255, verbose_name='Email')
+    email = models.EmailField(max_length=255, verbose_name='Email', unique=True)
     senha = models.CharField(max_length=16, verbose_name='Senha')

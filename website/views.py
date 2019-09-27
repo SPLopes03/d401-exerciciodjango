@@ -22,15 +22,22 @@ def index(request):
 
 def listar_cadastrados(request):
     listar_cadastrados = Pessoas.objects.filter(ativo=True).all()
-    args = {
-        'listar_cadastrados': listar_cadastrados
-    }
+    
+    args = None
+    if listar_cadastrados.first() is None:
+        args = {
+            'msg': 'Ops, Não tem ninguém cadastrado!'
+        }
+    else:
+        args = {
+            'listar_cadastrados': listar_cadastrados
+        }
     return render(request, 'listar_cadastrados.html', args)
 
 def delete_cadastrado(request, id):
-    item = Pessoas.objects.get(id=id)
+    item = Pessoas.objects.filter(id=id).first()
     if item is not None:
         item.ativo = False
         item.save()
         return redirect('/cadastro/listar')
-    return render(request, 'listar_cadastrados.html', {'msg': 'apagou'})
+    return redirect('/')

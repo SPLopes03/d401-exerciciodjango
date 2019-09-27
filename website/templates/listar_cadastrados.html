@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+    <p><strong>{{msg}}</strong></p>
     <marquee><h1>Lista de cadastrados: </h1></marquee>
     {% for item in listar_cadastrados %}
         <a href="/cadastro/delete/{{item.id}}">Deletar</a>
